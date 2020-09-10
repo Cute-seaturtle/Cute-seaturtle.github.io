@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DonutWorld</title>
+    <link rel="stylesheet" href="donut.css">
+  </head>
+  <body>
+    <h1>DonutWorld</h1>
+    <h3>An Awesome Donut Game</h3>
+    <div id="donutTotal">Donuts: 0</div>
+    <div>
+
+      <button type="button" onclick="bake()" name="button" class="collect-button">Click To Bake Some Donuts</button>
+    </div>
+
+<br>
+<br>
+
+    <div>
+
+      <!--shop section-->
+
+      <div class="shop-title">
+        Shop
+      </div>
+  </div>
+
+    <div>
+      <button type="button" id="buydeepFryerButton" class="buybutton" onclick="buydeepFryer()"disabled>Buy Deep Fryer (<span id="deepFryerCost">100</span>$)</button> x <span id="deepFryerCount">0</span>
+    </div>
+
+
+    <div>
+      <button type="button" name="buybutton" onclick="buyAssistant()"disabled>Buy Assistant (<span id="assistantCost">500</span>$)</button> x <span id="assistantCount">0</span>
+    </div>
+
+
+    <div>
+      <button type="button" name="buybutton" onclick="buyIngredients()"disabled>Buy Cheaper Ingredients (<span id="ingredientsCost">1000</span>$)</button> x <span id="ingredientsCount">0</span>
+    </div>
+
+
+    <div>
+      <button type="button" name="buybutton" onclick="buyflour()"disabled>Buy Cheaper Flour (<span id="flourCost">1500</span>$)</button> x <span id="flourCount">0</span>
+    </div>
+
+
+    <div>
+      <button type="button" name="buybutton" onclick="buySprinkles()"disabled>Buy Prettier Sprinkles (<span id="sprinklesCost">2000</span>$)</button> x <span id="sprinklesCount">0</span>
+    </div>
+
+
+    <div>
+      <button type="button" name="buybutton" onclick="buyfrosting()"disabled>Buy Tastier Frosting (<span id="frostingCost">2500</span>$)</button> x <span id="frostingCount">0</span>
+    </div>
+
+    <!--upgrades-->
+
+    <div class="upgrades-title">
+      Upgrades
+    </div>
+    </div>
+
+
+    <div>
+    <button type="button" id="upgradeClick" class="buybutton" name="upgradeclicks" onclick="upgradeClick()" disabled> Upgrade Click (400$) <br> Doubles Click Revanue </button>
+    </div>
+
+
+
+
+
+
+    <script src="donut.js"></script>
+  </body>
+</html>
