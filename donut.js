@@ -1,4 +1,4 @@
-var donuts = 600;
+var donuts = 1000;
 
 var deepFryerCount = 0;
 var deepFryerCost = 100;
@@ -9,11 +9,13 @@ var deepFryerCollectionRate = 1;
 var assistantCount = 0;
 var assistantCost = 500;
 var assistantCollectionRate = 5;
+var assistantBaseCost = 500;
 
 
 var ingredientsCount = 0;
 var ingredientsCost = 1000;
 var ingredientsCollectionRate = 10;
+var ingredientsBaseCost = 1000;
 
 
 var flourCount = 0;
@@ -72,6 +74,51 @@ function buydeepFryer() {
 }
 
 
+function buyAssistant() {
+  if(donuts >= assistantCost) {
+    assistantCount++;
+    donuts = donuts - assistantCost;
+
+    assistantCost = updateItemCost(assistantBaseCost, assistantCount)
+    console.log(assistantCost);
+    console.log('inside buyAssistant');
+
+    document.getElementById("assistantCost").innerHTML = assistantCost;
+    document.getElementById("assistantCount").innerHTML = assistantCount;
+    document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
+  }
+}
+
+function buyIngredients() {
+  if(donuts >= ingredientsCost) {
+    ingredientsCount++;
+    donuts = donuts - ingredientsCost;
+
+    ingredientsCost = updateItemCost(ingredientsBaseCost, ingredientsCount)
+    console.log(ingredientsCost);
+    console.log('inside buyIngredients');
+
+    document.getElementById("ingredientsCost").innerHTML = ingredientsCost;
+    document.getElementById("ingredientsCount").innerHTML = ingredientsCount;
+    document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
+  }
+}
+
+function buyIngredients() {
+  if(donuts >= ingredientsCost) {
+    ingredientsCount++;
+    donuts = donuts - ingredientsCost;
+
+    ingredientsCost = updateItemCost(ingredientsBaseCost, ingredientsCount)
+    console.log(ingredientsCost);
+    console.log('inside buyIngredients');
+
+    document.getElementById("ingredientsCost").innerHTML = ingredientsCost;
+    document.getElementById("ingredientsCount").innerHTML = ingredientsCount;
+    document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
+  }
+}
+
     function updateScrapCountDisplay(){
       document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts.toLocaleString();
     }
@@ -83,8 +130,10 @@ function updateItemCost(baseCost, numberOwned){
 }
 
 function  updateStoreAvailable(){
-  displayItemAvailable(deepFryerCost, "buydeepFryerButton");
   displayItemAvailable(upgradeClickCost, "upgradeClick");
+  displayItemAvailable(assistantCost, "buyAssistantButton");
+  displayItemAvailable(deepFryerCost, "buydeepFryerButton");
+  displayItemAvailable(deepFryerCost, "buyIngredientsButton");
 }
 
 function displayItemAvailable(itemCost, buttonId) {
@@ -93,18 +142,18 @@ function displayItemAvailable(itemCost, buttonId) {
 
   console.log(buttonId);
   console.log(button);
-  
+
   if (itemCost > donuts) {
     button.disabled = true;
-    button.classlist.add("disabled");
+    button.classList.add("disabled");
   } else {
     button.disabled = false;
-    button.classlist.remove("disabled");
+    button.classList.remove("disabled");
   }
 }
 
 function upgradeClick() {
-  if(donut>=upgradeClickCost){
+  if(donuts>=upgradeClickCost){
     donuts = donuts - upgradeClickCost;
     clickvalue = 2;
 
