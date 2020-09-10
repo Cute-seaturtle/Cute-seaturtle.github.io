@@ -1,4 +1,4 @@
-var donuts = 4000;
+var donuts = 90;
 
 var deepFryerCount = 0;
 var deepFryerCost = 100;
