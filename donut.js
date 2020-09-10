@@ -1,4 +1,4 @@
-var donuts = 1000;
+var donuts = 4000;
 
 var deepFryerCount = 0;
 var deepFryerCost = 100;
@@ -21,16 +21,19 @@ var ingredientsBaseCost = 1000;
 var flourCount = 0;
 var flourCost = 1500;
 var flourCollectionRate = 100;
+var flourBaseCost = 1500;
 
 
 var sprinklesCount = 0;
 var sprinklesCost = 2000;
 var sprinklesCollectionRate = 500;
+var sprinklesBaseCost = 2000;
 
 
 var frostingCount = 0;
 var frostingCost = 2500;
 var frostingCollectionRate = 1000;
+var frostingBaseCost = 2500;
 
 
 var itemCost = 1;
@@ -104,20 +107,51 @@ function buyIngredients() {
   }
 }
 
-function buyIngredients() {
-  if(donuts >= ingredientsCost) {
-    ingredientsCount++;
-    donuts = donuts - ingredientsCost;
+function buyFlour() {
+  if(donuts >= flourCost) {
+    flourCount++;
+    donuts = donuts - flourCost;
 
-    ingredientsCost = updateItemCost(ingredientsBaseCost, ingredientsCount)
-    console.log(ingredientsCost);
-    console.log('inside buyIngredients');
+    flourCost = updateItemCost(flourBaseCost, flourCount)
+    console.log(flourCost);
+    console.log('inside buyFlour');
 
-    document.getElementById("ingredientsCost").innerHTML = ingredientsCost;
-    document.getElementById("ingredientsCount").innerHTML = ingredientsCount;
+    document.getElementById("flourCost").innerHTML = flourCost;
+    document.getElementById("flourCount").innerHTML = flourCount;
     document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
   }
 }
+
+function buySprinkles() {
+  if(donuts >= sprinklesCost) {
+    sprinklesCount++;
+    donuts = donuts - sprinklesCost;
+
+    sprinklesCost = updateItemCost(sprinklesBaseCost, sprinklesCount)
+    console.log(sprinklesCost);
+    console.log('inside buySprinkles');
+
+    document.getElementById("sprinklesCost").innerHTML = sprinklesCost;
+    document.getElementById("sprinklesCount").innerHTML = sprinklesCount;
+    document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
+  }
+}
+
+function buyfrosting() {
+  if(donuts >= frostingCost) {
+    frostingCount++;
+    donuts = donuts - frostingCost;
+
+    frostingCost = updateItemCost(frostingBaseCost, frostingCount)
+    console.log(frostingCost);
+    console.log('inside buyfrosting');
+
+    document.getElementById("frostingCost").innerHTML = frostingCost;
+    document.getElementById("frostingCount").innerHTML = frostingCount;
+    document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts;
+  }
+}
+
 
     function updateScrapCountDisplay(){
       document.getElementById("donutTotal").innerHTML = "Donuts: " + donuts.toLocaleString();
@@ -133,7 +167,10 @@ function  updateStoreAvailable(){
   displayItemAvailable(upgradeClickCost, "upgradeClick");
   displayItemAvailable(assistantCost, "buyAssistantButton");
   displayItemAvailable(deepFryerCost, "buydeepFryerButton");
-  displayItemAvailable(deepFryerCost, "buyIngredientsButton");
+  displayItemAvailable(ingredientsCost, "buyIngredientsButton");
+  displayItemAvailable(flourCost, "buyFlourButton");
+  displayItemAvailable(sprinklesCost, "buySprinklesButton");
+  displayItemAvailable(frostingCost, "buyFrostingButton");
 }
 
 function displayItemAvailable(itemCost, buttonId) {
